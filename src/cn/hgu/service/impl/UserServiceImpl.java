@@ -1,3 +1,4 @@
+
 package cn.hgu.service.impl;
 
 import java.util.List;
@@ -19,37 +20,29 @@ import cn.hgu.service.UserService;
 
 public class UserServiceImpl implements UserService {
 	private UserDao userdao = new UserDaoImpl();
-	private static Configuration conf;
-	private static SessionFactory sf;
-	static{
-		conf=new Configuration();
-		conf.configure();
-		sf=conf.buildSessionFactory();
-	}
-
-	protected Session openSession(){
-
-		return sf.openSession();
-	}
+	
 
 	/**
      * 注册
      */
     @Override
     public void register(Users user) throws Exception {
-    	Session session=openSession();;
+    	
         Transaction tx = null;
-        tx = session.beginTransaction();
+       
         try {
-        	session.save(user);
-        	//userdao.insert(user);  该方法不行　　ｈｉｂｅｒｎａｔｅｕｔｉｌ也不行
-        	
+        	tx = HibernateUtil.currentSession().beginTransaction();
+        	//session.save(user);
+        
+        	userdao.insert(user); 
+        	//System.out.println("rrrrrrrrrrrrrrrrrrr");
             tx.commit();
         } catch (Exception e) {
-            e.printStackTrace();
+           e.printStackTrace();
             if (tx != null)
                 tx.rollback();
             throw e;
+        	//System.out.println("eeeeeeee");
         }
     }
 

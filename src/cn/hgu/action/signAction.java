@@ -58,6 +58,7 @@ public class signAction extends ActionSupport {
 		// TODO Auto-generated method stub
 		System.out.println("signaction");
 		System.out.println("uname+++"+name);
+		
 		user.setName(name);
 		user.setPassword(password);
 		user.setTelephone(telephone);

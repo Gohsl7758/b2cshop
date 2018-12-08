@@ -6,19 +6,21 @@
 	<session-factory>
 		<property name="hibernate.connection.username">root</property>
 		<property name="hibernate.connection.password">123456</property>
-		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/hibernatedemo2</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/houserent</property>
 		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
 
 		<property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
-	
+		
 		<property name="hibernate.show_sql">true</property>
 		
 		<property name="hibernate.hbm2ddl.auto">update</property>
-		<mapping resource="/cn/hgu/model/Users.hbm.xml"/>
-		<mapping resource="/cn/hgu/model/House.hbm.xml"/>
-		<mapping resource="/cn/hgu/model/Types.hbm.xml"/>
-		<mapping resource="/cn/hgu/model/Street.hbm.xml"/>
-		<mapping resource="/cn/hgu/model/District.hbm.xml"/>
+		<property name="hibernate.current_session_context_class">thread</property>
+		<property name="connection.autocommit">true</property>
+		<mapping resource="cn/hgu/model/Users.hbm.xml"/>
+		<mapping resource="cn/hgu/model/House.hbm.xml"/>
+		<mapping resource="cn/hgu/model/Types.hbm.xml"/>
+		<mapping resource="cn/hgu/model/Street.hbm.xml"/>
+		<mapping resource="cn/hgu/model/District.hbm.xml"/>
 	</session-factory>
 
 

@@ -16,7 +16,9 @@ public class UserDaoImpl extends BaseDao implements UserDao {
      */
     @Override
     public void insert(Users user) throws HibernateException {
+    	//System.out.println("wwwwwwwwww++++"+user.getName());
         this.currentSession().save(user);
+        
     }
 
   /*  *//**

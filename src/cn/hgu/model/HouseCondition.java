@@ -8,6 +8,41 @@ public class HouseCondition {
     private Integer endPrice;
     private Date startPubdate;
     private Date endPubdate;
+    private String street;
+    private String contract;
+    private String price;
+    private String type;
+    private String floorage;
+	public String getStreet() {
+		return street;
+	}
+	public void setStreet(String street) {
+		this.street = street;
+	}
+	public String getContract() {
+		return contract;
+	}
+	public void setContract(String contract) {
+		this.contract = contract;
+	}
+	public String getPrice() {
+		return price;
+	}
+	public void setPrice(String price) {
+		this.price = price;
+	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
+	public String getFloorage() {
+		return floorage;
+	}
+	public void setFloorage(String floorage) {
+		this.floorage = floorage;
+	}
 	public String getTitle() {
 		return title;
 	}

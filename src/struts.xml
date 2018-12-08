@@ -15,7 +15,18 @@
 			<result name="success">index.jsp</result>
 			
 		</action>
-		
+		<action name="fabu" class="cn.hgu.action.fabuAction">
+			<result name="success">index.jsp</result>
+			
+		</action>
+		<action name="list" class="cn.hgu.action.listAction">
+			<result name="success">list.jsp</result>
+			
+		</action>
+		<action name="search" class="cn.hgu.action.searchAction">
+			<result name="success">search.jsp</result>
+			
+		</action>
 	</package>
 
 </struts>
