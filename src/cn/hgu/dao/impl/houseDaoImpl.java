@@ -12,6 +12,7 @@ import cn.hgu.dao.HibernateUtil;
 import cn.hgu.dao.houseDao;
 import cn.hgu.model.House;
 import cn.hgu.model.HouseCondition;
+import cn.hgu.model.PageInfo;
 import cn.hgu.model.Street;
 import cn.hgu.model.Types;
 
@@ -79,14 +80,23 @@ public class houseDaoImpl extends BaseDao implements houseDao{
 	}
 
 	@Override
-	public List<House> findAll() {
+	public PageInfo findAll(PageInfo p) {
 		// TODO Auto-generated method stub
 		Transaction tx=HibernateUtil.currentSession().beginTransaction();
 		Session session=HibernateUtil.currentSession();
 		Query query=session.createQuery("from House h ");
-		List<House> list=query.list();
+		p.setCount(query.list().size());
 		
-		return list;
+		int nowpage=1;
+		if(p.getPageIndex()>0){
+			nowpage=p.getPageIndex();
+		}
+		query.setFirstResult((p.getPageIndex()-1)*p.PAGESIZE);
+		query.setMaxResults(p.PAGESIZE);
+		List<House> list=query.list();
+		p.setPageList(list);
+		
+		return p;
 	}
 
 }

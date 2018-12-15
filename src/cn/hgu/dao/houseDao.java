@@ -6,6 +6,7 @@ import org.hibernate.HibernateException;
 
 import cn.hgu.model.House;
 import cn.hgu.model.HouseCondition;
+import cn.hgu.model.PageInfo;
 
 public interface houseDao {
 	/*
@@ -20,6 +21,6 @@ public interface houseDao {
 	
 	/*
 	 * 房屋显示*/
-	public List<House> findAll();
+	public PageInfo findAll(PageInfo p);
 	
 }

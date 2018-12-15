@@ -11,18 +11,50 @@ import cn.hgu.dao.listDao;
 import cn.hgu.dao.impl.houseDaoImpl;
 import cn.hgu.dao.impl.listDaoImpl;
 import cn.hgu.model.House;
+import cn.hgu.model.PageInfo;
 import cn.hgu.model.Street;
 import cn.hgu.model.Types;
 
 public class listAction extends ActionSupport {
 	listDao dao=new listDaoImpl();
+	PageInfo p;
 	houseDao housedao=new houseDaoImpl();
 	List<Types> id_name;
 	List<Street> street_idname;
-	List<House> houselist;
-	
+	PageInfo houselist;
+	public PageInfo getP() {
+		return p;
+	}
 
-	public List<House> getHouselist() {
+
+
+
+
+	public void setP(PageInfo p) {
+		this.p = p;
+	}
+
+
+
+
+
+	public houseDao getHousedao() {
+		return housedao;
+	}
+
+
+
+
+
+	public void setHousedao(houseDao housedao) {
+		this.housedao = housedao;
+	}
+
+
+
+
+
+	public PageInfo getHouselist() {
 		return houselist;
 	}
 
@@ -30,7 +62,7 @@ public class listAction extends ActionSupport {
 
 
 
-	public void setHouselist(List<House> houselist) {
+	public void setHouselist(PageInfo houselist) {
 		this.houselist = houselist;
 	}
 
@@ -76,9 +108,10 @@ public class listAction extends ActionSupport {
 		// TODO Auto-generated method stub
 		//return super.execute();
 		System.out.println("listaction");
+		System.out.println("ppppppppppp"+p.getPageIndex());
 		id_name=dao.show_select();
 		street_idname=dao.show_select_two();
-		houselist=housedao.findAll();
+		houselist=housedao.findAll(p);
 		return SUCCESS;
 	}
 }

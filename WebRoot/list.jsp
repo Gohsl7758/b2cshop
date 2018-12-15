@@ -100,7 +100,7 @@
 	<DIV class="main wrap">
 		<TABLE class=house-list>
 			<TBODY>
-				<s:iterator value="houselist">
+				<s:iterator value="houselist.pageList">
 					<TR class=odd>
 					<TD class=house-thumb><span><A href="details.htm"
 							target="_blank"><img src="../images/thumb_house.gif"
@@ -125,13 +125,17 @@
 			</TBODY>
 		</TABLE>
 		<DIV class=pager>
+		<s:set name="pageNo" value="1"></s:set>
 			<UL>
-				<LI class=current><A href="#">首页</A></LI>
-				<LI><A href="#">上一页</A></LI>
-				<LI><A href="#">下一页</A></LI>
-				<LI><A href="#">末页</A></LI>
+				<LI class=current><A href="list?p.pageIndex=1">首页</A></LI>
+				
+				<LI><A href="list?p.pageIndex=${pageNo-1}">上一页</A></LI>
+				<LI><A href="list?p.pageIndex=${pageNo+1}">下一页</A></LI>
+				
+				<LI><A href="list?p.pageIndex=<s:property value="p.totalPages"/>">末页</A></LI> 
 			</UL>
-			<SPAN class=total>1/2页</SPAN>
+			
+			<%-- <SPAN class=total><s:property value="pageNo"/>/<s:property value="p.totalPages"/>页</SPAN> --%>
 		</DIV>
 	</DIV>
 	<DIV id=footer class=wrap>

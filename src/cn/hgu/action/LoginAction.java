@@ -8,6 +8,13 @@ import cn.hgu.service.impl.UserServiceImpl;
 
 public class LoginAction extends ActionSupport {
 	private String name;
+	private int pageindex=1;
+	public int getPageindex() {
+		return pageindex;
+	}
+	public void setPageindex(int pageindex) {
+		this.pageindex = pageindex;
+	}
 	private String password;
 	private UserService service=new UserServiceImpl();
 	private Users user=new Users();
